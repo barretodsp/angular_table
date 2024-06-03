@@ -1,6 +1,5 @@
 <main class="main">
   <div class="table-container">
-
     <table mat-table [dataSource]="dataSource" class="wl-mat-table mat-elevation-z8">
       <ng-container matColumnDef="position">
         <th mat-header-cell *matHeaderCellDef> Position </th>
@@ -25,32 +24,6 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns" class="wl-mat-header-row"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="wl-mat-row"></tr>
     </table> 
-
-    <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-     
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> Position </th>
-        <td mat-cell *matCellDef="let element" data-column="Position"> {{element.position}} </td>
-      </ng-container>
-    
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element" data-column="Name"> {{element.name}} </td>
-      </ng-container>
-    
-      <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell *matCellDef="let element" data-column="Weight"> {{element.weight}} </td>
-      </ng-container>
-    
-      <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell *matCellDef="let element" data-column="Symbol"> {{element.symbol}} </td>
-      </ng-container>
-    
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table> -->
   </div>
 </main>
 

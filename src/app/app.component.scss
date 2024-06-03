@@ -4,18 +4,14 @@
 
 @media only screen and (max-width: 600px) {
   .wl-mat-table {
-    // display: block;
-    // width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    height: 100%;  
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-  }
+    display: block;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 
-  td{
-    height: max-content;
+    tr{
+      height: 100%;
+    }
   }
 
   .wl-mat-header-row {
@@ -32,8 +28,7 @@
   .wl-mat-cell {
     display: flex;
     justify-content: space-between;
-    height: 200px;
-    // padding: 8px;
+    padding: 8px;
     border-bottom: 1px solid #e0e0e0;
   }
 
