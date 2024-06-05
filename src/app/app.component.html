@@ -13,28 +13,24 @@
     </table> 
   </div>
 </main>
-
-<!-- <main class="main">
+<!-- 
+<main class="main">
   <div class="table-container">
-    <table mat-table [dataSource]="dataSource" class="wl-mat-table mat-elevation-z8">
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> Position </th>
-        <td mat-cell *matCellDef="let element" data-column="Position" class="wl-mat-cell"> {{element.position}} </td>
+    <table mat-table [dataSource]="dataSource" class="wl-mat-table mat-elevation-z8" matSort>
+      
+      <ng-container matColumnDef="unidade">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Unidade </th>
+        <td mat-cell *matCellDef="let element" data-column="Unidade" class="wl-mat-cell"> {{element.unidade.value}} </td>
       </ng-container>
-    
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element" data-column="Name" class="wl-mat-cell"> {{element.name}} </td>
+
+      <ng-container matColumnDef="atendimento">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Atendimento </th>
+        <td mat-cell *matCellDef="let element" data-column="Atendimento" class="wl-mat-cell"> {{element.atendimento.value}} </td>
       </ng-container>
-    
-      <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell *matCellDef="let element" data-column="Weight" class="wl-mat-cell"> {{element.weight}} </td>
-      </ng-container>
-    
-      <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell *matCellDef="let element" data-column="Symbol" class="wl-mat-cell"> {{element.symbol}} </td>
+
+      <ng-container matColumnDef="paciente">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Paciente </th>
+        <td mat-cell *matCellDef="let element" data-column="Paciente" class="wl-mat-cell"> {{element.paciente.value}} </td>
       </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns" class="wl-mat-header-row"></tr>

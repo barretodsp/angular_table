@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,10 @@ import { MatSortModule } from '@angular/material/sort';
     HttpClientModule,
     BrowserAnimationsModule,
     CommonModule,
-    RouterModule.forRoot(routes),
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatPaginator,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
