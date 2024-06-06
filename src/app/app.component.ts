@@ -1,6 +1,6 @@
-import { MatTableDataSource } from '@angular/material/table';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
+import { CustomCell } from './custom-cell/custom-cell.component';
 
 @Component({
   selector: 'app-root',
@@ -9,42 +9,56 @@ import { MatSort } from '@angular/material/sort';
 })
 
 export class AppComponent implements OnInit {
-  // @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
+ 
+  columnsConfig = [
+    { columnId: 'unidade', label: 'Unidade', component: CustomCell},
+    { columnId: 'atendimento', label: 'Atendimento'},
+    { columnId: 'paciente', label: 'Paciente', component: CustomCell},
+    { columnId: 'idPaciente', label: 'ID Paciente'},
+    { columnId: 'dataPedido', label: 'Data(Pedido)', component: CustomCell},
+    { columnId: 'dataRealizacao', label: 'Data(Realização)', component: CustomCell},
+    { columnId: 'status', label: 'Status'},
+    { columnId: 'prioridade', label: 'Prioridade'},
+  ]
 
   displayedColumns:string[] = [
-      'unidade', 
-      'atendimento',
-      'paciente', 
-      'idPaciente', 
-      'dataPedido',
-      'dataRealizacao',
-      'status',
-      'prioridade'
-    ]
- 
-  columnLabels: {[key:string]: string} = {
-    unidade: 'Unidade', 
-    atendimento: 'Atendimento' ,
-    paciente: 'Paciente',
-    idPaciente: 'Id Paciente',
-    dataPedido: 'Data (Pedido)',
-    dataRealizacao: 'Data (Realização)',
-    status: 'Status',
-    prioridade: 'Prioridade'
+    'unidade', 
+    'atendimento',
+    'paciente', 
+    'idPaciente', 
+    'dataPedido',
+    'dataRealizacao',
+    'status',
+    'prioridade'
+  ]
+
+  columnsDefinition: {[key:string]: any} = {
+    unidade: { columnId: 'unidade', label: 'Unidade', component: CustomCell}, 
+    atendimento: { columnId: 'atendimento', label: 'Atendimento'},
+    paciente:  { columnId: 'paciente', label: 'Paciente', component: CustomCell},
+    idPaciente:  { columnId: 'idPaciente', label: 'ID Paciente'},
+    dataPedido:  { columnId: 'dataPedido', label: 'Data(Pedido)', component: CustomCell},
+    dataRealizacao:    { columnId: 'dataRealizacao', label: 'Data(Realização)', component: CustomCell},
+    status:  { columnId: 'status', label: 'Status'},
+    prioridade: { columnId: 'prioridade', label: 'Prioridade'}
   }
 
-  // dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+
+columnLabels: {[key:string]: string} = {
+  unidade: 'Unidade', 
+  atendimento: 'Atendimento' ,
+  paciente: 'Paciente',
+  idPaciente: 'Id Paciente',
+  dataPedido: 'Data (Pedido)',
+  dataRealizacao: 'Data (Realização)',
+  status: 'Status',
+  prioridade: 'Prioridade'
+}
+  tableConfig = {teste: 'algo'}
+  dataSource = ELEMENT_DATA;
   title = 'angular-table';
-
-  // constructor() { }
-  ngOnInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.sortingDataAccessor = (data:any, sortHeaderId:string) => {
-      return data[sortHeaderId].value
-    };
-  }
+  ngOnInit(): void {}
 }
 
 export interface Element {
@@ -62,8 +76,8 @@ const ELEMENT_DATA = [
     idPaciente: {value: '4628131'},
     dataPedido: {value: '2024-05-29T20:39:00.000Z'},
     dataRealizacao: {value: '2024-05-30T20:39:00.000Z'},
-    status: {value: 'Para Laudar', background: '#0E830C'},
-    prioridade: {value: '0 - Notório', background: '#2094ff'}
+    status: {value: 'Para Laudar', styles: { background: '#0E830C'}},
+    prioridade: {value: '0 - Notório', styles: { background: '#2094ff'}}
   },
   {
     unidade: {value: 'BARRA DOR', idUnidade: 54}, 
@@ -72,8 +86,8 @@ const ELEMENT_DATA = [
     idPaciente: {value: '80990'},
     dataPedido: {value: '2024-05-27T20:39:00.000Z'},
     dataRealizacao: {value: '2024-05-28T22:48:00.000Z'},
-    status: {value: 'Para Laudar', background: '#0E830C'},
-    prioridade: {value: '0 - Notório', background: '#2094ff'}
+    status: {value: 'Para Laudar', styles: { background: '#0E830C'}},
+    prioridade: {value: '0 - Notório', styles: { background: '#2094ff'}}
   },
   {
     unidade: {value: 'BARRA DOR', idUnidade: 54}, 
@@ -82,8 +96,8 @@ const ELEMENT_DATA = [
     idPaciente: {value: '80991'},
     dataPedido: {value: '2024-05-20T20:39:00.000Z'},
     dataRealizacao: {value: '2024-05-21T22:48:00.000Z'},
-    status: {value: 'Para Laudar', background: '#0E830C'},
-    prioridade: {value: '0 - Notório', background: '#2094ff'}
+    status: {value: 'Para Laudar', styles: { background: '#0E830C'}},
+    prioridade: {value: '0 - Notório', styles: { background: '#2094ff'}}
   },
 ];
 

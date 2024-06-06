@@ -10,10 +10,16 @@ import { routes } from './app.routes';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { ColumnResizeDirective } from './generic-table/resize-column.directive';
+import { GenericTable } from './generic-table/generic-table.component';
+import { CustomCell } from './custom-cell/custom-cell.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CustomCell,
+    GenericTable,
+    ColumnResizeDirective
   ],
   imports: [
     BrowserModule,
