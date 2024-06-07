@@ -11,17 +11,6 @@ import { CustomCell } from './custom-cell/custom-cell.component';
 export class AppComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
  
-  columnsConfig = [
-    { columnId: 'unidade', label: 'Unidade', component: CustomCell},
-    { columnId: 'atendimento', label: 'Atendimento'},
-    { columnId: 'paciente', label: 'Paciente', component: CustomCell},
-    { columnId: 'idPaciente', label: 'ID Paciente'},
-    { columnId: 'dataPedido', label: 'Data(Pedido)', component: CustomCell},
-    { columnId: 'dataRealizacao', label: 'Data(Realização)', component: CustomCell},
-    { columnId: 'status', label: 'Status'},
-    { columnId: 'prioridade', label: 'Prioridade'},
-  ]
-
   displayedColumns:string[] = [
     'unidade', 
     'atendimento',
@@ -30,43 +19,25 @@ export class AppComponent implements OnInit {
     'dataPedido',
     'dataRealizacao',
     'status',
-    'prioridade'
+    'prioridade',
   ]
 
-  columnsDefinition: {[key:string]: any} = {
-    unidade: { columnId: 'unidade', label: 'Unidade', component: CustomCell}, 
-    atendimento: { columnId: 'atendimento', label: 'Atendimento'},
-    paciente:  { columnId: 'paciente', label: 'Paciente', component: CustomCell},
-    idPaciente:  { columnId: 'idPaciente', label: 'ID Paciente'},
-    dataPedido:  { columnId: 'dataPedido', label: 'Data(Pedido)', component: CustomCell},
-    dataRealizacao:    { columnId: 'dataRealizacao', label: 'Data(Realização)', component: CustomCell},
-    status:  { columnId: 'status', label: 'Status'},
-    prioridade: { columnId: 'prioridade', label: 'Prioridade'}
+  columnsConfig: {[key:string]: any} = {
+    unidade: { label: 'Unidade', component: CustomCell}, 
+    atendimento: { label: 'Atendimento'},
+    paciente:  { label: 'Paciente', component: CustomCell},
+    idPaciente:  { label: 'ID Paciente'},
+    dataPedido:  { label: 'Data(Pedido)', component: CustomCell},
+    dataRealizacao:    { label: 'Data(Realização)', component: CustomCell},
+    status:  { label: 'Status'},
+    prioridade: { label: 'Prioridade'}
   }
-
-
-columnLabels: {[key:string]: string} = {
-  unidade: 'Unidade', 
-  atendimento: 'Atendimento' ,
-  paciente: 'Paciente',
-  idPaciente: 'Id Paciente',
-  dataPedido: 'Data (Pedido)',
-  dataRealizacao: 'Data (Realização)',
-  status: 'Status',
-  prioridade: 'Prioridade'
-}
-  tableConfig = {teste: 'algo'}
+  tableConfig = { rowColor:'#fff', headerColor:'yellow', evenRowBg: '#232222', oddRowBg: '#333', headerBg: '#34495e'}
   dataSource = ELEMENT_DATA;
   title = 'angular-table';
   ngOnInit(): void {}
 }
 
-export interface Element {
-  name: any;
-  position: any;
-  weight: any;
-  symbol: any;
-}
 
 const ELEMENT_DATA = [
   {
@@ -97,6 +68,206 @@ const ELEMENT_DATA = [
     dataPedido: {value: '2024-05-20T20:39:00.000Z'},
     dataRealizacao: {value: '2024-05-21T22:48:00.000Z'},
     status: {value: 'Para Laudar', styles: { background: '#0E830C'}},
+    prioridade: {value: '0 - Notório', styles: { background: '#2094ff'}}
+  },
+  {
+    unidade: {value: 'COPA', idUnidade: 80}, 
+    atendimento: {value: 9000040001450901},
+    paciente: {value: 'FERNANDO Unid=80 PID=80992'},
+    idPaciente: {value: '80992'},
+    dataPedido: {value: '2024-05-01T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-01T22:48:00.000Z'},
+    status: {value: 'Liberado', styles: { background: '#1b2759'}},
+    prioridade: {value: '0 - Notório', styles: { background: '#2094ff'}}
+  },
+  {
+    unidade: {value: 'COPA', idUnidade: 80}, 
+    atendimento: {value: 9000040001450902},
+    paciente: {value: 'JOAO Unid=80 PID=80993'},
+    idPaciente: {value: '80993'},
+    dataPedido: {value: '2024-05-02T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-02T22:48:00.000Z'},
+    status: {value: 'Liberado', styles: { background: '#1b2759'}},
+    prioridade: {value: '0 - Notório', styles: { background: '#2094ff'}}
+  },
+  {
+    unidade: {value: 'COPA', idUnidade: 80}, 
+    atendimento: {value: 9000040001450903},
+    paciente: {value: 'JOAO Unid=80 PID=80994'},
+    idPaciente: {value: '80994'},
+    dataPedido: {value: '2024-05-03T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-03T22:48:00.000Z'},
+    status: {value: 'Liberado', styles: { background: '#1b2759'}},
+    prioridade: {value: '1 - Emergência', styles: { background: '#E02F2F'}}
+  },
+  {
+    unidade: {value: 'NITERÓI', idUnidade: 213}, 
+    atendimento: {value: 9000040001450904},
+    paciente: {value: 'Maria Unid=213 PID=80995'},
+    idPaciente: {value: '80995'},
+    dataPedido: {value: '2024-05-05T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-05T22:48:00.000Z'},
+    status: {value: 'Liberado', styles: { background: '#1b2759'}},
+    prioridade: {value: '1 - Emergência', styles: { background: '#E02F2F'}}
+  },
+  {
+    unidade: {value: 'NITERÓI', idUnidade: 213}, 
+    atendimento: {value: 9000040001450904},
+    paciente: {value: 'Maria Unid=213 PID=80995'},
+    idPaciente: {value: '80995'},
+    dataPedido: {value: '2024-05-05T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-05T22:48:00.000Z'},
+    status: {value: 'Liberado', styles: { background: '#1b2759'}},
+    prioridade: {value: '1 - Emergência', styles: { background: '#E02F2F'}}
+  },
+  {
+    unidade: {value: 'NITERÓI', idUnidade: 213}, 
+    atendimento: {value: 9000040001450904},
+    paciente: {value: 'Maria Unid=213 PID=80995'},
+    idPaciente: {value: '80995'},
+    dataPedido: {value: '2024-05-05T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-05T22:48:00.000Z'},
+    status: {value: 'Liberado', styles: { background: '#1b2759'}},
+    prioridade: {value: '1 - Emergência', styles: { background: '#E02F2F'}}
+  },
+  {
+    unidade: {value: 'NITERÓI', idUnidade: 213}, 
+    atendimento: {value: 9000040001450904},
+    paciente: {value: 'Maria Unid=213 PID=80995'},
+    idPaciente: {value: '80995'},
+    dataPedido: {value: '2024-05-05T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-05T22:48:00.000Z'},
+    status: {value: 'Liberado', styles: { background: '#1b2759'}},
+    prioridade: {value: '1 - Emergência', styles: { background: '#E02F2F'}}
+  },
+  {
+    unidade: {value: 'NITERÓI', idUnidade: 213}, 
+    atendimento: {value: 9000040001450904},
+    paciente: {value: 'Maria Unid=213 PID=80995'},
+    idPaciente: {value: '80995'},
+    dataPedido: {value: '2024-05-05T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-05T22:48:00.000Z'},
+    status: {value: 'Liberado', styles: { background: '#1b2759'}},
+    prioridade: {value: '1 - Emergência', styles: { background: '#E02F2F'}}
+  },
+  {
+    unidade: {value: 'NITERÓI', idUnidade: 213}, 
+    atendimento: {value: 9000040001450904},
+    paciente: {value: 'Maria Unid=213 PID=80995'},
+    idPaciente: {value: '80995'},
+    dataPedido: {value: '2024-05-05T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-05T22:48:00.000Z'},
+    status: {value: 'Liberado', styles: { background: '#1b2759'}},
+    prioridade: {value: '1 - Emergência', styles: { background: '#E02F2F'}}
+  },
+  {
+    unidade: {value: 'NITERÓI', idUnidade: 213}, 
+    atendimento: {value: 9000040001450904},
+    paciente: {value: 'Maria Unid=213 PID=80995'},
+    idPaciente: {value: '80995'},
+    dataPedido: {value: '2024-05-05T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-05T22:48:00.000Z'},
+    status: {value: 'Liberado', styles: { background: '#1b2759'}},
+    prioridade: {value: '1 - Emergência', styles: { background: '#E02F2F'}}
+  },
+  {
+    unidade: {value: 'NITERÓI', idUnidade: 213}, 
+    atendimento: {value: 9000040001450904},
+    paciente: {value: 'Maria Unid=213 PID=80995'},
+    idPaciente: {value: '80995'},
+    dataPedido: {value: '2024-05-05T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-05T22:48:00.000Z'},
+    status: {value: 'Liberado', styles: { background: '#1b2759'}},
+    prioridade: {value: '1 - Emergência', styles: { background: '#E02F2F'}}
+  },
+  {
+    unidade: {value: 'NITERÓI', idUnidade: 213}, 
+    atendimento: {value: 9000040001450904},
+    paciente: {value: 'Maria Unid=213 PID=80995'},
+    idPaciente: {value: '80995'},
+    dataPedido: {value: '2024-05-05T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-05T22:48:00.000Z'},
+    status: {value: 'Liberado', styles: { background: '#1b2759'}},
+    prioridade: {value: '1 - Emergência', styles: { background: '#E02F2F'}}
+  },
+  {
+    unidade: {value: 'NITERÓI', idUnidade: 213}, 
+    atendimento: {value: 9000040001450904},
+    paciente: {value: 'Maria Unid=213 PID=80995'},
+    idPaciente: {value: '80995'},
+    dataPedido: {value: '2024-05-05T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-05T22:48:00.000Z'},
+    status: {value: 'Liberado', styles: { background: '#1b2759'}},
+    prioridade: {value: '1 - Emergência', styles: { background: '#E02F2F'}}
+  },
+  {
+    unidade: {value: 'NITERÓI', idUnidade: 213}, 
+    atendimento: {value: 9000040001450904},
+    paciente: {value: 'Maria Unid=213 PID=80995'},
+    idPaciente: {value: '80995'},
+    dataPedido: {value: '2024-05-05T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-05T22:48:00.000Z'},
+    status: {value: 'Liberado', styles: { background: '#1b2759'}},
+    prioridade: {value: '1 - Emergência', styles: { background: '#E02F2F'}}
+  },
+  {
+    unidade: {value: 'QUINTA', idUnidade: 64}, 
+    atendimento: {value: 90000400014509020},
+    paciente: {value: 'Maria Unid=64 PID=80200'},
+    idPaciente: {value: '80200'},
+    dataPedido: {value: '2024-05-05T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-05T22:48:00.000Z'},
+    status: {value: 'Entregue', styles: { background: '#39371f'}},
+    prioridade: {value: '0 - Notório', styles: { background: '#2094ff'}}
+  },
+  {
+    unidade: {value: 'QUINTA', idUnidade: 64}, 
+    atendimento: {value: 90000400014509020},
+    paciente: {value: 'Maria Unid=64 PID=80200'},
+    idPaciente: {value: '80200'},
+    dataPedido: {value: '2024-05-05T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-05T22:48:00.000Z'},
+    status: {value: 'Entregue', styles: { background: '#39371f'}},
+    prioridade: {value: '0 - Notório', styles: { background: '#2094ff'}}
+  },
+  {
+    unidade: {value: 'QUINTA', idUnidade: 64}, 
+    atendimento: {value: 90000400014509020},
+    paciente: {value: 'Maria Unid=64 PID=80200'},
+    idPaciente: {value: '80200'},
+    dataPedido: {value: '2024-05-05T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-05T22:48:00.000Z'},
+    status: {value: 'Entregue', styles: { background: '#39371f'}},
+    prioridade: {value: '0 - Notório', styles: { background: '#2094ff'}}
+  },
+  {
+    unidade: {value: 'QUINTA', idUnidade: 64}, 
+    atendimento: {value: 90000400014509020},
+    paciente: {value: 'Maria Unid=64 PID=80200'},
+    idPaciente: {value: '80200'},
+    dataPedido: {value: '2024-05-05T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-05T22:48:00.000Z'},
+    status: {value: 'Entregue', styles: { background: '#39371f'}},
+    prioridade: {value: '0 - Notório', styles: { background: '#2094ff'}}
+  },
+  {
+    unidade: {value: 'QUINTA', idUnidade: 64}, 
+    atendimento: {value: 90000400014509020},
+    paciente: {value: 'Maria Unid=64 PID=80200'},
+    idPaciente: {value: '80200'},
+    dataPedido: {value: '2024-05-05T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-05T22:48:00.000Z'},
+    status: {value: 'Entregue', styles: { background: '#39371f'}},
+    prioridade: {value: '0 - Notório', styles: { background: '#2094ff'}}
+  },
+  {
+    unidade: {value: 'QUINTA', idUnidade: 64}, 
+    atendimento: {value: 90000400014509020},
+    paciente: {value: 'Maria Unid=64 PID=80200'},
+    idPaciente: {value: '80200'},
+    dataPedido: {value: '2024-05-05T20:39:00.000Z'},
+    dataRealizacao: {value: '2024-05-05T22:48:00.000Z'},
+    status: {value: 'Entregue', styles: { background: '#39371f'}},
     prioridade: {value: '0 - Notório', styles: { background: '#2094ff'}}
   },
 ];

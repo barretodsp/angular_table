@@ -10,17 +10,13 @@ import { MatSort } from '@angular/material/sort';
 
 export class GenericTable implements OnInit {
     
-    @Input() columnsDefinition!:  {[key:string]: any};
     @Input() displayedColumns!: string[]; 
-    @Input() columnLabels!: {[key:string]: string}; 
-    @Input() columnsConfig!: any[];
+    @Input() columnsConfig!:{[key:string]: any};
     @Input() tableConfig!: any;
     @Input() dataSource!: any[];
     
     @ViewChild(MatSort) sort!: MatSort;
 
-    evenRowColor: string = '#232222'; //tableConfig
-    oddRowColor: string = '#333'; //tableConfig
     tableDataSource!: MatTableDataSource<any>;
 
   ngOnInit(): void {
@@ -37,7 +33,6 @@ export class GenericTable implements OnInit {
   }
 
   createInjector(data: any): Injector {
-    // console.info('Injecting...', data.value)
     return Injector.create({
       providers: [
         { provide: 'data', useValue: data.value }
