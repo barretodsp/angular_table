@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   ]
 
   columnsConfig: {[key:string]: any} = {
-    unidade: { label: 'Unidade', component: CustomCell}, 
+    unidade: { label: 'Unidade', component: CustomCell }, 
     atendimento: { label: 'Atendimento'},
     paciente:  { label: 'Paciente', component: CustomCell},
     idPaciente:  { label: 'ID Paciente'},
@@ -32,7 +32,15 @@ export class AppComponent implements OnInit {
     status:  { label: 'Status'},
     prioridade: { label: 'Prioridade'}
   }
-  tableConfig = { rowColor:'#fff', headerColor:'yellow', evenRowBg: '#232222', oddRowBg: '#333', headerBg: '#34495e'}
+  
+  tableConfig = { 
+    rowColor:'#fff', 
+    headerColor:'yellow', 
+    evenRowBg: '#232222', 
+    oddRowBg: '#333', 
+    headerBg: '#34495e'
+  }
+
   dataSource = ELEMENT_DATA;
   title = 'angular-table';
   ngOnInit(): void {}
